@@ -12,11 +12,16 @@ export class Beer extends Component {
     }
 
 handleClick=(e)=> {
-  e.preventDefault()
-    const newState=this.state;
-    console.log(newState)
-    this.setState({clicked:!this.state.clicked})
+  // e.preventDefault()
 
+    this.setState({clicked:!this.state.clicked})
+    console.log(this.state)
+}
+buttons=()=>{
+  if(this.state.clicked===true){
+    return "Liked"
+  }
+  else return "Click to Like"
 }
   render(){
     // console.log(this.props)
@@ -28,7 +33,7 @@ handleClick=(e)=> {
         src={this.props.image}
         alt={this.props.name}
         />
-        <button onClick={e => this.handleClick(e)}>{this.props.clicked === true ?`Like`:`Dont`}</button>
+        <button onClick={e => this.handleClick(e)}>{this.buttons}</button>
         </li>
 
  );
